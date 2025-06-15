@@ -37,8 +37,8 @@ In bare-metal programming, we need to understand mainly three types of informati
 #### Install requirements
 
 ```
-sudo apt-get update -y
-sudo apt-get install build-essential make git openocd 
+$ sudo apt-get update -y
+$ sudo apt-get install build-essential make git openocd 
 ```
 
 #### Download and Extract Arm GNU Toolchain
@@ -65,9 +65,8 @@ export PATH="$PATH:/your/path/to/bin"
 
 Check if it works:
 ```
-source ~/.bashrc
-
-which arm-none-eabi-gcc
+$ source ~/.bashrc
+$ which arm-none-eabi-gcc
 ```
 
 # Directory Structure
