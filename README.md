@@ -2,7 +2,7 @@
 
 This repository contains bare-metal C code for STM32 microcontrollers, with a custom **build system**, **peripheral drivers**, and **application-level code examples** which are re-written without using any IDE or third-party libraries. By building everything from scratch, you'll gain a deeper understanding of *how ARM-Cortex M based MCU works under the hood*,  *how embedded build systems are set up*, and *how Hardware Abstraction Layers (HALs) are implemented.*
 
-![STM32F411RE](.docs/images/STM32F411RE.jpg)
+![STM32F411RE](./docs/images/STM32F411RE.jpg)
 
 # Prerequisites 
 
@@ -10,7 +10,7 @@ The following hardware, docs and tools are required along the development proces
 
 ## Target Platform
 
-In this guide, [STM32 NUCLEO-F411RE](https://www.st.com/en/microcontrollers-microprocessors/stm32f411re.html) development board is used as an example. On board [ST-LINK](https://www.st.com/en/development-tools/st-link-v2.html) can be used for flashing and debugging the firmware. It's recommended to update the [ST-Link firmware](https://www.st.com/en/development-tools/stsw-link007.html) before using it.
+In this guide, [STM32 NUCLEO-F411RE](https://www.st.com/en/microcontrollers-microprocessors/stm32f411re.html) development board is used as an example. On board [ST-LINK](https://www.st.com/en/development-tools/st-link-v2.html) can be used for flashing and debugging the firmware. It's recommended to update the [ST-Link firmware](https://www.st.com/en/development-tools/stsw-link007.html) before use.
 
 ## Documentations
 
@@ -61,11 +61,12 @@ nano ~/.bashrc
 Append this line at the end:
 ```
 export PATH="$PATH:/your/path/to/bin"
-source ~/.bashrc
 ```
 
 Check if it works:
 ```
+source ~/.bashrc
+
 which arm-none-eabi-gcc
 ```
 
