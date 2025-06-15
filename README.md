@@ -12,7 +12,7 @@ The following hardware, docs and tools are required along the development proces
 
 In this guide, [STM32 NUCLEO-F411RE](https://www.st.com/en/microcontrollers-microprocessors/stm32f411re.html) development board is used as an example. On board [ST-LINK](https://www.st.com/en/development-tools/st-link-v2.html) can be used for flashing and debugging the firmware. It's recommended to update the [ST-Link firmware](https://www.st.com/en/development-tools/stsw-link007.html) before use.
 
-## Documentations
+## Docs
 
 In bare-metal programming, we need to understand mainly three types of information.
 
