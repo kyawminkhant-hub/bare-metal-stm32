@@ -1,6 +1,6 @@
 # Bare-metal series: STM32
 
-This repository contains bare-metal C code for STM32 microcontrollers, with a custom **build system**, **peripheral drivers**, and **application-level code examples** which are re-written without using any IDE or third-party libraries. By building everything from scratch, you'll gain a deeper understanding of *how ARM-Cortex M based MCU works under the hood*,  *how embedded build systems are set up*, and *how Hardware Abstraction Layers (HALs) are implemented.*
+This repository contains bare-metal C code for STM32 microcontrollers, with a custom **build system**, **linker script, startup file**, **peripheral drivers**, and **application-level code examples** which are re-written from scratch without using any IDE or third-party libraries. By building everything from scratch, you'll gain a deeper understanding of how Arm Cortex-M based MCU works under the hood,  how embedded build systems are set up, and how Hardware Abstraction Layers (HALs) are implemented.
 
 ![STM32F411RE](./docs/images/STM32F411RE.jpg)
 
