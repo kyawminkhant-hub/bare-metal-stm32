@@ -79,19 +79,31 @@ $ which arm-none-eabi-gcc
 │   └── stm32_startup.c
 ├── docs
 │   └── images
+│       └── STM32F411RE.jpg
 ├── drivers
 │   ├── gpio.c
-│   └── systick.c
-│   └── // TODO: Add more drivers (eg. UART, I2C. ADC .etc)
+│   ├── systick.c
+│   └── uart.c
 ├── examples
-│   └── ...
+│   ├── Blinky
+│   │   └── blink.c
+│   ├── Button
+│   │   ├── Button_Pressed_LED_On
+│   │   │   └── button_press.c
+│   │   └── Debounce
+│   │       └── debounce_blocking.c
+│   └── Serial
+│       └── serial_output.c
 ├── include
-│   ├── stm32f411re.h
 │   ├── gpio.h
 │   ├── rcc.h
-│   └── systick.h
-└── Makefile
+│   ├── stm32f411re.h
+│   ├── systick.h
+│   └── uart.h
+├── LICENSE
+├── Makefile
 └── README.md
+
 ```
 
 | Directory   | Description                                          |
