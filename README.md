@@ -78,8 +78,7 @@ $ which arm-none-eabi-gcc
 │   ├── stm32_ls.ld
 │   └── stm32_startup.c
 ├── docs
-│   └── images
-│       └── STM32F411RE.jpg
+│   └── ...
 ├── drivers
 │   ├── gpio.c
 │   ├── systick.c
