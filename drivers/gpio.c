@@ -4,8 +4,19 @@ void gpio_pin_configure(uint16_t pin, uint8_t mode)
 {
         struct gpio *gpio = GPIO(PORT(pin));
         uint8_t n = PIN(pin);
+
+	RCC->AHB1ENR |= (1U << PORT(pin)); 
+
         gpio->MODER &= ~(3 << (2 * n));
         gpio->MODER |= (mode & 3) << (2 * n);
+}
+
+void gpio_pin_af_configure(uint16_t pin, uint8_t af_mode)
+{
+	struct gpio *gpio = GPIO(PORT(pin));
+	uint8_t n = PIN(pin);
+	gpio->AFR[n >> 3] &= ~(15UL << ((n & 7) * 4));
+	gpio->AFR[n >> 3] |= (af_mode << ((n & 7) * 4));
 }
 
 uint32_t gpio_pin_get(uint16_t pin)

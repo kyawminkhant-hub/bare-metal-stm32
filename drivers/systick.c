@@ -1,9 +1,5 @@
 #include <stm32f411re.h>
 
-/* SysTick config helper Macro */
-#define SYST_CSR_CONFIG(ENABLE, TICKINT, CLKSRC) \
-        (ENABLE << 0) | (TICKINT << 1) | (CLKSRC << 2)
-
 void systick_timer_configure(uint8_t enable, uint8_t tickint, uint8_t clksrc)
 {
         SYST->CSR = SYST_CSR_CONFIG(enable, tickint, clksrc);

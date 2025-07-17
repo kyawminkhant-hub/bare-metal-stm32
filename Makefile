@@ -1,5 +1,5 @@
-ROOT_DIR      := /path/to/bare-metal-stm32
-APP_DIR       := $(ROOT_DIR)/examples/Blinky
+ROOT_DIR      := /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32
+APP_DIR       := $(ROOT_DIR)/examples/Serial/
 INCLUDE_DIR   := $(ROOT_DIR)/include
 DRIVERS_DIR   := $(ROOT_DIR)/drivers
 BUILD_DIR     := $(ROOT_DIR)/build

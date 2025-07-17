@@ -4,7 +4,6 @@
 #include <stm32f411re.h>
 
 #define RCC				((struct rcc *) RCC_BASE)
-
 #define RCC_APB2ENR_SYSCFGEN		(1U << 14)
 
 /*

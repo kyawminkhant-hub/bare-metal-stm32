@@ -3,12 +3,17 @@
 
 #include <stm32f411re.h>
 
-#define SYST 			((struct systick *)0xE000E010)
-
+#define SYST 			((struct systick *) 0xE000E010)
 #define SYST_CSR_ENABLE		(1U << 0)
 #define SYST_CSR_TICKINT	(1U << 1)
 #define SYST_CSR_CLKSRC		(1U << 2)
 #define SYST_CSR_CFLAG		(1U << 16)
+
+/* 
+ * SysTick helper Macros
+ */
+#define SYST_CSR_CONFIG(ENABLE, TICKINT, CLKSRC) \
+        (ENABLE << 0) | (TICKINT << 1) | (CLKSRC << 2)
 
 struct systick {
 	volatile uint32_t CSR;
