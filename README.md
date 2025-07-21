@@ -85,14 +85,11 @@ $ which arm-none-eabi-gcc
 │   └── uart.c
 ├── examples
 │   ├── Blinky
-│   │   └── blink.c
+│   │   └── ...
 │   ├── Button
-│   │   ├── Button_Pressed_LED_On
-│   │   │   └── button_press.c
-│   │   └── Debounce
-│   │       └── debounce_blocking.c
+│   │   └── ...
 │   └── Serial
-│       └── serial_output.c
+│       └── ...
 ├── include
 │   ├── gpio.h
 │   ├── rcc.h
