@@ -11,7 +11,7 @@
 
 int main(void)
 {
-        // Configure B1 (GPIO PC13)
+        // Configure B1 (GPIO PC13) as an INPUT
         uint16_t B1_PIN = GPIO_INIT(GPIOC, 13);
 	gpio_pin_configure(B1_pin, GPIO_MODE_INPUT);
         

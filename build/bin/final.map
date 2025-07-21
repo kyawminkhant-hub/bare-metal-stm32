@@ -1,0 +1,184 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+SRAM             0x20000000         0x00020000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+LOAD /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+LOAD /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/gpio.o
+LOAD /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/systick.o
+LOAD /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/uart.o
+                0x20020000                        _estack = (ORIGIN (SRAM) + LENGTH (SRAM))
+                0x00000200                        __max_heap_size = 0x200
+                0x00000400                        __max_stack_size = 0x400
+
+.text           0x08000000      0x624
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector_tbl)
+ .isr_vector_tbl
+                0x08000000      0x198 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+                0x08000000                vector_tbl
+ *(.text)
+ .text          0x08000198       0x66 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+                0x08000198                main
+ *fill*         0x080001fe        0x2 
+ .text          0x08000200       0x8c /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+                0x08000200                RTC_Alarm_IRQHandler
+                0x08000200                EXTI2_IRQHandler
+                0x08000200                DebugMon_Handler
+                0x08000200                SPI4_IRQHandler
+                0x08000200                TIM1_CC_IRQHandler
+                0x08000200                DMA2_Stream5_IRQHandler
+                0x08000200                HardFault_Handler
+                0x08000200                DMA1_Stream5_IRQHandler
+                0x08000200                SysTick_Handler
+                0x08000200                PVD_IRQHandler
+                0x08000200                SDIO_IRQHandler
+                0x08000200                TAMP_STAMP_IRQHandler
+                0x08000200                PendSV_Handler
+                0x08000200                NMI_Handler
+                0x08000200                EXTI3_IRQHandler
+                0x08000200                TIM1_UP_TIM10_IRQHandler
+                0x08000200                I2C3_ER_IRQHandler
+                0x08000200                EXTI0_IRQHandler
+                0x08000200                I2C2_EV_IRQHandler
+                0x08000200                DMA1_Stream2_IRQHandler
+                0x08000200                FPU_IRQHandler
+                0x08000200                UsageFault_Handler
+                0x08000200                DMA2_Stream2_IRQHandler
+                0x08000200                SPI1_IRQHandler
+                0x08000200                TIM1_BRK_TIM9_IRQHandler
+                0x08000200                DMA2_Stream3_IRQHandler
+                0x08000200                USART6_IRQHandler
+                0x08000200                DMA2_Stream0_IRQHandler
+                0x08000200                TIM4_IRQHandler
+                0x08000200                I2C1_EV_IRQHandler
+                0x08000200                DMA1_Stream6_IRQHandler
+                0x08000200                DMA1_Stream1_IRQHandler
+                0x08000200                TIM3_IRQHandler
+                0x08000200                RCC_IRQHandler
+                0x08000200                Default_Handler
+                0x08000200                EXTI15_10_IRQHandler
+                0x08000200                ADC_IRQHandler
+                0x08000200                DMA1_Stream7_IRQHandler
+                0x08000200                SPI5_IRQHandler
+                0x08000200                TIM5_IRQHandler
+                0x08000200                DMA2_Stream7_IRQHandler
+                0x08000200                I2C3_EV_IRQHandler
+                0x08000200                EXTI9_5_IRQHandler
+                0x08000200                RTC_WKUP_IRQHandler
+                0x08000200                SPI2_IRQHandler
+                0x08000200                MemManage_Handler
+                0x08000200                DMA1_Stream0_IRQHandler
+                0x08000200                SVC_Handler
+                0x08000200                EXTI4_IRQHandler
+                0x08000200                WWDG_IRQHandler
+                0x08000200                TIM2_IRQHandler
+                0x08000200                OTG_FS_WKUP_IRQHandler
+                0x08000200                TIM1_TRG_COM_TIM11_IRQHandler
+                0x08000200                EXTI1_IRQHandler
+                0x08000200                USART2_IRQHandler
+                0x08000200                I2C2_ER_IRQHandler
+                0x08000200                DMA2_Stream1_IRQHandler
+                0x08000200                FLASH_IRQHandler
+                0x08000200                DMA2_Stream4_IRQHandler
+                0x08000200                BusFault_Handler
+                0x08000200                USART1_IRQHandler
+                0x08000200                OTG_FS_IRQHandler
+                0x08000200                SPI3_IRQHandler
+                0x08000200                DMA1_Stream4_IRQHandler
+                0x08000200                I2C1_ER_IRQHandler
+                0x08000200                DMA2_Stream6_IRQHandler
+                0x08000200                DMA1_Stream3_IRQHandler
+                0x08000206                Reset_Handler
+ .text          0x0800028c      0x1d4 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/gpio.o
+                0x0800028c                gpio_pin_configure
+                0x08000304                gpio_pin_af_configure
+                0x08000398                gpio_pin_get
+                0x080003d8                gpio_pin_set
+                0x08000424                gpio_pin_toggle
+ .text          0x08000460       0xac /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/systick.o
+                0x08000460                systick_timer_configure
+                0x08000494                systick_timer_set
+                0x080004b8                ms_delay
+ .text          0x0800050c      0x118 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/uart.o
+                0x0800050c                uart_configure
+                0x080005dc                uart_write
+ *(.rodata)
+                0x08000624                        . = ALIGN (0x4)
+                0x08000624                        _etext = .
+
+.glue_7         0x08000624        0x0
+ .glue_7        0x08000624        0x0 linker stubs
+
+.glue_7t        0x08000624        0x0
+ .glue_7t       0x08000624        0x0 linker stubs
+
+.vfp11_veneer   0x08000624        0x0
+ .vfp11_veneer  0x08000624        0x0 linker stubs
+
+.v4_bx          0x08000624        0x0
+ .v4_bx         0x08000624        0x0 linker stubs
+
+.iplt           0x08000624        0x0
+ .iplt          0x08000624        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+
+.rel.dyn        0x08000624        0x0
+ .rel.iplt      0x08000624        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+
+.data           0x20000000        0x0 load address 0x08000624
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+ .data          0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+ .data          0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/gpio.o
+ .data          0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/systick.o
+ .data          0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/uart.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000624
+ .igot.plt      0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+
+.bss            0x20000000        0x0 load address 0x08000624
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss)
+ .bss           0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+ .bss           0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+ .bss           0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/gpio.o
+ .bss           0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/systick.o
+ .bss           0x20000000        0x0 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/uart.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+OUTPUT(/media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/bin/final.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045       0x46 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+ .comment       0x00000045       0x46 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/gpio.o
+ .comment       0x00000045       0x46 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/systick.o
+ .comment       0x00000045       0x46 /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/uart.o
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/examples/Button/Debounce/debounce_blocking.o
+ .ARM.attributes
+                0x0000002e       0x2e /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/build/stm32_startup.o
+ .ARM.attributes
+                0x0000005c       0x2e /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/gpio.o
+ .ARM.attributes
+                0x0000008a       0x2e /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/systick.o
+ .ARM.attributes
+                0x000000b8       0x2e /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32/drivers/uart.o

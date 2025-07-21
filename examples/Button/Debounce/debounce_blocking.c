@@ -2,12 +2,7 @@
  * This example code shows how to debounce a button using blocking delay.
  */
 
-#include <stdint.h>
 #include <stm32f411re.h>
-
-// Define bit mask for enabling GPIOAEN and GPIOCEN in RCC_AHB1EN register
-#define GPIOAEN			(1U << 0)
-#define GPIOCEN			(1U << 2)
 
 // USER_B1 is pulled-up
 #define B1_RELEASED		1
@@ -15,16 +10,13 @@
 
 int main(void)
 {
-        // Enable clock access to GPIOA & GPIOC
-        RCC->AHB1ENR |= GPIOAEN;
-        RCC->AHB1ENR |= GPIOCEN;
-
-        // Configure B1 (GPIO PC13)
-        uint16_t B1_PIN = GPIO_INIT(GPIOC, 13);
+        // Configure B1 (GPIO PC13) as an INPUT
+        uint16_t B1_pin = GPIO_INIT(GPIOC, 13);
+	gpio_pin_configure(B1_pin, GPIO_MODE_INPUT);
 
         // Configure LED (GPIO PA5) as an OUTPUT
-        uint16_t LD2_PIN = GPIO_INIT(GPIOA, 5);
-        gpio_pin_configure(LD2_PIN, GPIO_MODE_OUTPUT);
+        uint16_t LD2_pin = GPIO_INIT(GPIOA, 5);
+        gpio_pin_configure(LD2_pin, GPIO_MODE_OUTPUT);
 
         unsigned int bt_state = B1_RELEASED;	
 	unsigned int last_bt_state = B1_RELEASED;
@@ -32,7 +24,7 @@ int main(void)
 	while (1)
         {
 		// Polling button state
-		bt_state = gpio_pin_get(B1_PIN);
+		bt_state = gpio_pin_get(B1_pin);
 
 		 /*
 		 * If button state changes, due to the noise or pressing
@@ -47,10 +39,10 @@ int main(void)
 			 * If the button state is the same after delay, the button is pressed
 			 * Whenever button is pressed, toggle LED               
 			 */
-			bt_state = gpio_pin_get(B1_PIN);
+			bt_state = gpio_pin_get(B1_pin);
 
 			if (bt_state == B1_PRESSED)
-				gpio_pin_toggle(LD2_PIN);
+				gpio_pin_toggle(LD2_pin);
 		}
 
 		last_bt_state = bt_state;
