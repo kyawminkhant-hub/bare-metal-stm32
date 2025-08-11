@@ -1,3 +1,4 @@
+#include <stm32f411re.h>
 #include <stdint.h>
 
 /*Symbols defined in the linker script */
@@ -215,7 +216,10 @@ void Default_Handler(void)
 	}
 }
 
-/* Reset Handler */
+
+/* 
+ * Reset Handler 
+ */
 void Reset_Handler(void)
 {
 	 /*
@@ -252,7 +256,8 @@ void Reset_Handler(void)
 		 /*Set bss section to zero*/  
 		*p_dest_mem++ = 0;
 	}
-	
+
 	// Call the application's main function.
 	main();
 }
+
