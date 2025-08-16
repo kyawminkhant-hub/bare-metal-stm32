@@ -1,4 +1,4 @@
-ROOT_DIR	:= /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32
+ROOT_DIR	:= path/to/bare-metal-stm32
 APP_DIR		:= $(ROOT_DIR)/examples/Blinky
 INCLUDE_DIR	:= $(ROOT_DIR)/include
 DRIVERS_DIR	:= $(ROOT_DIR)/drivers
@@ -10,7 +10,6 @@ SRC	        := $(shell find $(APP_DIR) $(BUILD_DIR) $(DRIVERS_DIR) -iname "*.c")
 OBJ		:= $(patsubst %.c, %.o, $(SRC))
 INCLUDE		:= $(addprefix -I, $(INCLUDE_DIR))
 LD		:= $(BUILD_DIR)/stm32_ls.ld
-#LD		:= $(LIB_DIR)/kristianklein/linker_script.ld
 TARGET		:= $(BIN_DIR)/final.elf
 MAP		:= $(BIN_DIR)/final.map
 
@@ -18,7 +17,7 @@ CC		:= arm-none-eabi-gcc
 MCU		:= cortex-m4
 CFLAGS		:= -mcpu=$(MCU) -mthumb -std=gnu11
 LDFLAGS		:= -T $(LD) --specs=nano.specs --specs=nosys.specs -Wl,-Map=$(MAP)
-NOLIB		:= -nostdlib
+STDLIB		:= -nostdlib
 
 .PHONY: all build flash clean
 
@@ -28,7 +27,7 @@ all: flash
 build: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(NOLIB) $^ -o $@ 
+	$(CC) $(CFLAGS) $(LDFLAGS) $(STDLIB) $^ -o $@ 
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $(INCLUDE) $< -o $@

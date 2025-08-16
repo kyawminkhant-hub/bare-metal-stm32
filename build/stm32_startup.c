@@ -8,6 +8,7 @@ extern uint32_t _sdata;
 extern uint32_t _edata;
 extern uint32_t _sbss;
 extern uint32_t _ebss;
+extern uint32_t _sidata;
 
 /* Function prototypes */
 void Reset_Handler(void);
@@ -208,14 +209,9 @@ uint32_t vector_tbl[] __attribute__((section(".isr_vector_tbl"))) =
  * Default_Handler 
  * safe fallback: if you don't provide your own interrupt or fault handler, the MCU just locks in an infinite loop.
  */
-void Default_Handler(void)
-{
-	while(1)
-	{
-		
-	}
+void Default_Handler(void) {
+	while(1);
 }
-
 
 /* 
  * Reset Handler 
@@ -235,7 +231,7 @@ void Reset_Handler(void)
          * Initialize a source pointer to the address where .data is stored in FLASH
          * Initialize a destination pointer to the start of the .data section in SRAM
          */
-	uint32_t *p_src_mem =  (uint32_t *)&_etext;
+	uint32_t *p_src_mem =  (uint32_t *)&_sidata;
 	uint32_t *p_dest_mem = (uint32_t *)&_sdata;
 	
 	/* Copy contents of .data section from FLASH to SRAM word by word(32-bit) */

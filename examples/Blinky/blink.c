@@ -4,8 +4,8 @@
 
 int main(void)
 {
-	/* Configure LED (GPIO PB4) as an OUTPUT */
-        uint16_t LED = GPIO_INIT(PB, 4); 
+	/* Configure LED (GPIO PA5) as an OUTPUT */
+        uint16_t LED = GPIO_INIT(PA, 5); 
 	gpio_pin_configure(LED, GPIO_MODE_OUTPUT);
 
 	int duration = 1000;
@@ -13,7 +13,6 @@ int main(void)
 	timer_start(TIM2);
 	
 	int last_ms = timer_get_ms(TIM2);
-
 
 	while(1) {	
 
