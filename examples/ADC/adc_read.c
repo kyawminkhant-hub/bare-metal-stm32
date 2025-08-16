@@ -23,13 +23,13 @@ int main(void) {
 	int pot = 0;
 	int percent = 0;
 
-        while (1) {
+	while (1) {
 		pot = adc_get(ADC1);
 		percent = adc_get_percent(ADC1);
 		
 		pwm_set (TIM3, 1, percent, freq);
 
-                printf("Pot Value: %d (%d%%) \r\n", pot, percent);
+		printf("Pot Value: %d (%d%%) \r\n", pot, percent);
 		delay_ms(1000);
 	}
 }
