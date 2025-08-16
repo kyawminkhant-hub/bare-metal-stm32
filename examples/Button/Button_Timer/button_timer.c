@@ -13,8 +13,8 @@ int main(void)
         uint16_t B1_PIN = GPIO_INIT(PC, 13);
         gpio_pin_configure(B1_PIN, GPIO_MODE_INPUT);
 	
-	/* Configure LED (GPIO PB4) as an OUTPUT */
-        uint16_t LED = GPIO_INIT(PB, 4); 
+	/* Configure LED (GPIO PA5) as an OUTPUT */
+        uint16_t LED = GPIO_INIT(PA, 5); 
 	gpio_pin_configure(LED, GPIO_MODE_OUTPUT);
 
 	int bt_state = B1_RELEASED;
@@ -58,7 +58,6 @@ int main(void)
 			gpio_pin_toggle(LED);
 			last_ms = timer_get_ms(TIM2);
 		}	
-
 	}
 }
 
