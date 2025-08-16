@@ -20,14 +20,17 @@ _Min_Heap_Size = 0x200;  /* 512 bytes */
 
 /* Defining Output Sections */
 SECTIONS
-{
+{ 	
 	.text :
 	{
 		. = ALIGN(4);
 		*(.isr_vector_tbl)	/* Merge all .isr_vector_tbl sections of input files */
 		*(.text)		/* Merge all .text sections of input files */
-		*(.rodata)		/* Merge all .rodata sections of input files */
+		*(.text.*)
 		
+		*(.rodata)		/* Merge all .rodata sections of input files */
+		*(.rodata.*)
+
 		. = ALIGN(4);
 		_etext = .;		/* Create a global symbol to hold end of text section */
 	} > FLASH
@@ -40,7 +43,8 @@ SECTIONS
 		_sdata = .;		/*Create a global symbol to hold start of data section*/
 		
 		*(.data)		/* Merge all .data sections of input files */
-	
+		*(.data.*)
+
 		. = ALIGN(4);
 		_edata = .;		/* Create a global symbol to hold end of data section */
 	} > SRAM AT> FLASH		/* >(VMA) AT> (LMA) */
@@ -52,6 +56,7 @@ SECTIONS
 		__bss_start__ = _sbss;
 
 		*(.bss)			/* Merge all .bss sections of input files */
+		*(.bss.*)
 
 		. = ALIGN(4);
 		_ebss = .;		/* Create a global symbol to hold end of bss section */
