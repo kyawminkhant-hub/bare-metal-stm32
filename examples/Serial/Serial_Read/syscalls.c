@@ -2,6 +2,7 @@
 #include <sys/times.h>
 #include <uart.h>
 #include <errno.h>
+
 #undef errno
 extern int errno;
 
@@ -112,7 +113,7 @@ int _write(int file, char *ptr, int len) {
   
   for (uint32_t i = 0; i < len; i++)
   {
-    uart_write(USART1, *ptr++);
+    uart_write(uart_ptr, *ptr++);
   }
   
   return len;

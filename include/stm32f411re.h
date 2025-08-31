@@ -233,16 +233,23 @@ struct usart {
 
 /* USART */
 #define USART1					((struct usart *) USART1_BASE)
-#define USART6					((struct usart *) USART6_BASE)
 #define USART2					((struct usart *) USART2_BASE)
+#define USART6					((struct usart *) USART6_BASE)
 
 #define USART1EN				(1U << 4)
 #define USART6EN				(1U << 5)
 #define USART2EN				(1U << 17)
 
+#define USART1_IRQn				37
+#define USART2_IRQn				38
+#define USART6_IRQn				71
+
+#define USART_CR1_RE				(1U << 2)
 #define USART_CR1_TE				(1U << 3)
 #define USART_CR1_UE				(1U << 13)
+
 #define USART_SR_TXE				(1U << 7)
+#define USART_SR_RXNE				(1U << 5)
 
 /* ADC */
 #define ADC1					((struct adc *) ADC1_BASE)
@@ -252,5 +259,13 @@ struct usart {
 #define ADC_CR2_CONT				(1U << 1)
 #define ADC_CR2_SWSTART				(1U << 30)
 #define ADC_SR_EOC				(1U << 1)
+
+/*
+ * NVIC
+ */
+
+static inline void NVIC_EnableIRQ(uint8_t irq_num) {
+	NVIC_ISER0[irq_num >> 5] = (1U << (irq_num & 0x1F));
+}
 
 #endif /* STM32F411RE_H */

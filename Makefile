@@ -1,6 +1,6 @@
 APP_DIR		?= # default empty 
 
-ROOT_DIR	:= /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32
+ROOT_DIR	:= /path/to/bare-metal-stm32
 INCLUDE_DIR	:= $(ROOT_DIR)/include
 DRIVERS_DIR	:= $(ROOT_DIR)/drivers
 LIB_DIR		:= $(ROOT_DIR)/lib

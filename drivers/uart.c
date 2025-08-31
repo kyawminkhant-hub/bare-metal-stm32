@@ -1,10 +1,20 @@
 #include <stm32f411re.h>
 #include <gpio.h>
 #include <uart.h>
+#include <ring_buffer.h>
+
+#define UART_BUFFER_SIZE (16)
+
+struct usart *uart_ptr;
+
+static uint8_t buffer[UART_BUFFER_SIZE];
+static struct ring_buffer tx_buffer = { .buffer = buffer, .size = sizeof(buffer) };
 
 void uart_configure(struct usart *uart, unsigned long baudrate)
 {
 	uint16_t tx_pin = 0, rx_pin = 0;
+
+	uart_ptr = uart;
 
 	if (uart == USART1) {
 		RCC->APB2ENR |= USART1EN;
@@ -31,11 +41,30 @@ void uart_configure(struct usart *uart, unsigned long baudrate)
 	gpio_pin_af_configure(rx_pin, AF7);
 
 	uart->BRR =  ((SYS_CLK_RATE + (baudrate / 2U)) / baudrate);
-	uart->CR1 |= (USART_CR1_TE | USART_CR1_UE);
+	uart->CR1 |= (USART_CR1_TE | USART_CR1_RE | USART_CR1_UE);
+
 }
 
 void uart_write(struct usart *uart, char ch) 
 {
-	while (!(uart->SR & USART_SR_TXE)) {}
-    	uart->DR = (uint8_t) ch;
+	while (ring_buffer_full(&tx_buffer));
+
+	ring_buffer_set(&tx_buffer, ch);	
+	
+	/* Enable TXE interrupt */
+	NVIC_EnableIRQ(USART1_IRQn);
+	uart->CR1 |= USART_SR_TXE;
+}
+
+void USART1_IRQHandler(void)
+{	
+	if (ring_buffer_empty(&tx_buffer)) {
+		USART1->CR1 &= ~(1U << 7); // disable TXE interrupt when buffer is empty
+		return;
+	}
+
+	uint8_t ch = ring_buffer_get(&tx_buffer); 
+		
+	if (USART1->SR & USART_SR_TXE)
+		USART1->DR = ch; 
 }

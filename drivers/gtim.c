@@ -1,10 +1,6 @@
 #include <stm32f411re.h>
 #include <gtim.h>
 
-static inline void NVIC_EnableIRQ(uint8_t irq_num) {
-    NVIC_ISER0[irq_num >> 5] = (1U << (irq_num & 0x1F));
-}
-
 static struct gtim_t* gtim_select(struct tim *gtim) 
 {
 	for (int i = 0; i < NUM_TIMERS; i++) {	

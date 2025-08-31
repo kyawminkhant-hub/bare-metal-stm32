@@ -4,7 +4,6 @@
 #include <systick.h>
 #include <pwm.h>
 
-
 int main(void) 
 {
 	int pwm_freq = 1000;
