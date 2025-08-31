@@ -1,5 +1,5 @@
 CURRENT_DIR := $(shell pwd)
-ROOT_DIR := $(abspath $(CURRENT_DIR)/../../)
+ROOT_DIR := $(abspath $(CURRENT_DIR)/../../../)
 
 .PHONY: all build flash clean
 
