@@ -19,18 +19,14 @@ int main(void)
         uint16_t LD2_PIN = GPIO_INIT(PA, 5);
         gpio_pin_configure(LD2_PIN, GPIO_MODE_OUTPUT);
 
-        unsigned int bt_state = B1_RELEASED;	
-	unsigned int last_bt_state = B1_RELEASED;
+        uint8_t reading = B1_RELEASED;	
 	
 	while (1)
         {
 		// Polling button state
-		bt_state = gpio_pin_get(B1_PIN);
+		reading = gpio_pin_get(B1_PIN);
 		
-		if (bt_state)
-			gpio_pin_set(LD2_PIN, 0);
-		else
-			gpio_pin_set(LD2_PIN, 1);
+		gpio_pin_set(LD2_PIN, !reading);
 	}
 }
 
