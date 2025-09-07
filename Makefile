@@ -1,6 +1,6 @@
 APP_DIR		?= # default empty 
 
-ROOT_DIR	:= /media/kmk/DATA/Ubuntu/Firmware-Foundation/Bare-metal-series-STM32/workspace/bare-metal-stm32
+ROOT_DIR	:= /path/to/bare-metal-stm32
 INCLUDE_DIR	:= $(ROOT_DIR)/include
 DRIVERS_DIR	:= $(ROOT_DIR)/drivers
 LIB_DIR		:= $(ROOT_DIR)/lib
@@ -26,7 +26,7 @@ L		?= # placeholder for additional linker flags
 
 # Check that APP_DIR is non-empty
 ifeq ($(strip $(APP_DIR)),)
-$(error ERROR: APP_DIR not set. Run make from an example subdirectory!)
+$(error ERROR: APP_DIR not set. Run make from an application or example subdirectory!)
 endif
 
 # Build
