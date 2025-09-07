@@ -130,19 +130,19 @@ To get started, first clone this repository:
 git clone https://github.com/kyawminkhant-hub/bare-metal-stm32.git
 ```
 
-In the `Makefile`, change `ROOT_DIR` variable with the path to this directory.
+In top-level `Makefile`, change `ROOT_DIR` variable with the **absolute path** to this directory.
 ```
 ROOT_DIR := /path/to/bare-metal-stm32
 ```
 
-The target code can built using `make` command in the top-level directory. To build a specific example, update the target path in the `Makefile` by modifying the `APP_DIR` variable:
+The target source can built using `make` command in **the application directory**. To build a specific example, change to the application directory. 
+
+For LED blinking example,
 ```
-APP_DIR := $(ROOT_DIR)/examples/Blinky
+cd /examples/Blinky
 ```
 
-In this example, the target is set to the `Blinky` code example.
-
-From the top-level directory, run
+From the application directory, run
 ```
 make build
 ```
