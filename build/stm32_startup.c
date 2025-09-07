@@ -28,7 +28,7 @@ void HardFault_Handler 			(void) __attribute__ ((weak, alias("Default_Handler"))
 void MemManage_Handler 			(void) __attribute__ ((weak, alias("Default_Handler")));
 void BusFault_Handler 			(void) __attribute__ ((weak, alias("Default_Handler")));
 void UsageFault_Handler 		(void) __attribute__ ((weak, alias("Default_Handler")));
-void SVC_Handler 				(void) __attribute__ ((weak, alias("Default_Handler")));
+void SVC_Handler			(void) __attribute__ ((weak, alias("Default_Handler")));
 void DebugMon_Handler 			(void) __attribute__ ((weak, alias("Default_Handler")));
 void PendSV_Handler   			(void) __attribute__ ((weak, alias("Default_Handler")));
 void SysTick_Handler  			(void) __attribute__ ((weak, alias("Default_Handler")));
@@ -219,18 +219,18 @@ void Default_Handler(void) {
 void Reset_Handler(void)
 {
 	 /*
-         * Calculating the sizes of .data and .bss sections
-         * Each address -> 1byte data
-         * Number of addresses -> size of data
-         */
+	  * Calculating the sizes of .data and .bss sections
+	  * Each address -> 1byte data
+	  * Number of addresses -> size of data
+	  */
 	uint32_t data_mem_size =  (uint32_t)&_edata - (uint32_t)&_sdata;
 	uint32_t bss_mem_size  =   (uint32_t)&_ebss - (uint32_t)&_sbss;
     
-	 /* 
-         * To copy .data from FLASH to SRAM,
-         * Initialize a source pointer to the address where .data is stored in FLASH
-         * Initialize a destination pointer to the start of the .data section in SRAM
-         */
+	/* 
+	 * To copy .data from FLASH to SRAM,
+	 * Initialize a source pointer to the address where .data is stored in FLASH
+	 * Initialize a destination pointer to the start of the .data section in SRAM
+	 */
 	uint32_t *p_src_mem =  (uint32_t *)&_sidata;
 	uint32_t *p_dest_mem = (uint32_t *)&_sdata;
 	
@@ -239,14 +239,13 @@ void Reset_Handler(void)
 		 *p_dest_mem++ = *p_src_mem++;
 	}
 	
-        /*
-         * To zero out the .bss section, 
-         * Initialize the pointer to the .bss section
-         */	
+	/*
+	 * To zero out the .bss section, 
+	 * Initialize the pointer to the .bss section
+	 */	
 	p_dest_mem =  (uint32_t *)&_sbss;
 	
-	for(uint32_t i = 0; i < bss_mem_size; i++) {
-		 
+	for(uint32_t i = 0; i < bss_mem_size; i++) {	 
 		/*Set bss section to zero*/  
 		*p_dest_mem++ = 0;
 	}
