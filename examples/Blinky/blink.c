@@ -1,6 +1,6 @@
 #include <stm32f411re.h>
 #include <gpio.h>
-#include <gtim.h>
+#include <timer.h>
 
 int main(void)
 {

@@ -2,6 +2,8 @@
 #define PWM_H
 
 #include <stm32f411re.h>
+#include <gtim.h>
+#include <timer.h>
 
 /*
  * PWM APIs

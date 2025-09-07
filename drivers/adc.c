@@ -1,29 +1,29 @@
-#include <gpio.h>
 #include <adc.h>
 
-void adc_mode_select(struct adc *adc, uint8_t mode)
+void adc_mode_select(struct adc *adc, adc_mode_t mode)
 {
-    switch (mode) {
-        case ADC_MODE_SIN:
-            adc->CR2 &= ~ADC_CR2_CONT;   // Disable continuous
-            break;
+	// TODO: Add more modes
 
-        case ADC_MODE_CONT:
-            adc->CR2 |= ADC_CR2_CONT;    // Enable continuous
-            break;
-
-        default:
-            break; 
-    }
+	switch (mode) {
+	case ADC_MODE_SIN:
+		adc->CR2 &= ~ADC_CR2_CONT;   // Disable continuous
+		break;
+	case ADC_MODE_CONT:
+		adc->CR2 |= ADC_CR2_CONT;    // Enable continuous
+		break;
+	default:
+		break; 
+	}
 }
 
-void adc_configure(struct adc *adc, uint8_t channel, uint8_t mode)
+void adc_configure(struct adc *adc, uint8_t channel, adc_mode_t mode)
 {	
+	// TODO: Set Multiple Conversion Sequence
+	
 	/* Enable ADC1 Clock */
 	RCC->APB2ENR |= ADC1EN;
 
 	/* Set Single Conversion Sequence */ 
-	// TODO: Multiple Conversion Sequence
 	adc->SQR3 = channel;
 	adc->SQR1 = 0;
 
@@ -37,7 +37,7 @@ void adc_configure(struct adc *adc, uint8_t channel, uint8_t mode)
 uint32_t adc_get(struct adc *adc)
 {
 	adc->CR2 |= ADC_CR2_SWSTART; // Start conversion
-	while (!(adc->SR & ADC_SR_EOC)) {} // Wait conversion
+	while (!(adc->SR & ADC_SR_EOC)); // Wait conversion
 	return adc->DR;
 }
 

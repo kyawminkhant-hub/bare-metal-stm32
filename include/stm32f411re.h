@@ -222,7 +222,14 @@ struct usart {
 
 #define TIM_CR1_CEN				(1U << 0)
 #define TIM_CR1_ARPE				(1U << 7)
+
 #define TIM_DIER_UIE				(1U << 0)
+#define TIM_DIER_CC1IE				(1U << 1)
+#define TIM_DIER_CC2IE				(1U << 2)
+#define TIM_DIER_CC3IE				(1U << 3)
+#define TIM_DIER_CC4IE				(1U << 4)
+#define TIM_DIER_TIE				(1U << 6)
+
 #define TIM_SR_UIF				(1U << 0)
 #define TIM_EGR_UG				(1U << 0)
 
@@ -247,6 +254,17 @@ struct usart {
 #define USART_CR1_RE				(1U << 2)
 #define USART_CR1_TE				(1U << 3)
 #define USART_CR1_UE				(1U << 13)
+
+#define USART_CR1_TXIE				(1U << 7)
+#define USART_CR1_TCIE				(1U << 6)
+#define USART_CR1_RXNEIE			(1U << 5)
+#define USART_CR1_IDLEIE			(1U << 4)
+#define USART_CR1_PEIE				(1U << 8)
+
+#define USART_CR2_LBDIE				(1U << 6)
+
+#define USART_CR3_CTSIE				(1U << 10)
+#define USART_CR3_EIE				(1U << 0)
 
 #define USART_SR_TXE				(1U << 7)
 #define USART_SR_RXNE				(1U << 5)

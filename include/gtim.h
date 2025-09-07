@@ -3,37 +3,46 @@
 
 #include <stm32f411re.h>
 
-#define TIM_CLK_RATE    1000000UL // 1MHz Clock Rate for preconfig
-#define NUM_TIMERS      4
+/* 
+ * GTIM Interrupt Flags
+ */
+typedef enum {
+	TIM_INT_UIF, 
+	TIM_INT_CC1F, 
+	TIM_INT_CC2F,
+	TIM_INT_CC3F,
+	TIM_INT_CC4F,
+	TIM_INT_TIF
+} gtim_irq_flag_t; 
 
-/* Timer attributes */
-struct gtim_t {
-        struct tim *gtim;
-        uint8_t irq_num;
-        volatile uint32_t rcc_enable;
-        volatile uint32_t overflow_count;
-        volatile uint32_t reset;
-};
+/* 
+ * GTIM Callback Init 
+ */
+typedef void (*gtim_callback_t)(struct tim *gtim);
 
-static struct gtim_t timers[NUM_TIMERS] = {
-        { TIM2, TIM2_IRQn, TIM2EN, 0, 0 },
-        { TIM3, TIM3_IRQn, TIM3EN, 0, 0 },
-        { TIM4, TIM4_IRQn, TIM4EN, 0, 0 },
-        { TIM5, TIM5_IRQn, TIM5EN, 0, 0 },
-};
+static gtim_callback_t tim2_callback;
+static gtim_callback_t tim3_callback;
+static gtim_callback_t tim4_callback;
+static gtim_callback_t tim5_callback;
 
 /*
  * GTIM APIs
  */
+void gtim_configure(struct tim *gtim, uint16_t psc_val, uint32_t arr_val);
 
-void gtim_counter_start(struct tim *gtim);
-uint32_t gtim_counter_get(struct tim *gtim);
-
-void gtim_configure(struct tim *gtim, uint16_t psc_val, uint32_t arr_val, uint8_t irq_flag);
 void gtim_pwm_configure(struct tim *gtim, uint8_t channel, uint16_t psc_val, uint32_t arr_val, uint32_t ccr_val);
 
-void timer_start(struct tim *gtim);
-void timer_set_ms(struct tim *gtim, uint32_t ms);
-uint32_t timer_get_ms(struct tim *gtim);
+void gtim_irq_callback_set(struct tim *gtim, gtim_callback_t callback);
+
+void gtim_irq_enable(struct tim *gtim, gtim_irq_flag_t flag);
+
+static inline void gtim_counter_start(struct tim *gtim) {
+        gtim->CR1 |= TIM_CR1_CEN;
+}
+
+static inline uint32_t gtim_counter_get(struct tim *gtim) {
+        return gtim->CNT;
+}
+
 
 #endif /* GTIM_H */ 
