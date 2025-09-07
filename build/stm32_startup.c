@@ -235,9 +235,7 @@ void Reset_Handler(void)
 	uint32_t *p_dest_mem = (uint32_t *)&_sdata;
 	
 	/* Copy contents of .data section from FLASH to SRAM word by word(32-bit) */
-	for(uint32_t i = 0; i < data_mem_size; i++  )
-	{
-		
+	for(uint32_t i = 0; i < data_mem_size; i++  ) {
 		 *p_dest_mem++ = *p_src_mem++;
 	}
 	
@@ -247,13 +245,13 @@ void Reset_Handler(void)
          */	
 	p_dest_mem =  (uint32_t *)&_sbss;
 	
-	for(uint32_t i = 0; i < bss_mem_size; i++)
-	{
-		 /*Set bss section to zero*/  
+	for(uint32_t i = 0; i < bss_mem_size; i++) {
+		 
+		/*Set bss section to zero*/  
 		*p_dest_mem++ = 0;
 	}
 
-	// Call the application's main function.
+	/* Call the application's main function */
 	main();
 }
 
