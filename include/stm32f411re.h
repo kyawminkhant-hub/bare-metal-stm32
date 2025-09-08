@@ -38,12 +38,12 @@ struct gpio {
 	volatile uint32_t MODER;    	// Offset 0x00
 	volatile uint32_t OTYPER;   	// Offset 0x04
 	volatile uint32_t OSPEEDR;  	// Offset 0x08
-    	volatile uint32_t PUPDR;    	// Offset 0x0C
-    	volatile uint32_t IDR;      	// Offset 0x10
-    	volatile uint32_t ODR;      	// Offset 0x14
-    	volatile uint32_t BSRR;     	// Offset 0x18
-    	volatile uint32_t LCKR;     	// Offset 0x1C
-    	volatile uint32_t AFR[2];   	// Offset 0x20 and 0x24
+	volatile uint32_t PUPDR;    	// Offset 0x0C
+	volatile uint32_t IDR;      	// Offset 0x10
+	volatile uint32_t ODR;      	// Offset 0x14
+	volatile uint32_t BSRR;     	// Offset 0x18
+	volatile uint32_t LCKR;     	// Offset 0x1C
+	volatile uint32_t AFR[2];   	// Offset 0x20 and 0x24
 };
 
 /* ADC */
@@ -130,15 +130,15 @@ struct usart {
 #define PERIPH_BASE				(0x40000000UL)
 
 /* APB1 Bus Addresses */
-#define APB1PERIPH_BASE				PERIPH_BASE
+#define APB1PERIPH_BASE			PERIPH_BASE
 
 /* APB2 Bus Addresses */
-#define APB2PERIPH_OFFSET			(0x00010000UL)
-#define APB2PERIPH_BASE				(PERIPH_BASE + APB2PERIPH_OFFSET)
+#define APB2PERIPH_OFFSET		(0x00010000UL)
+#define APB2PERIPH_BASE			(PERIPH_BASE + APB2PERIPH_OFFSET)
 
 /* AHB1 Bus Addresses */
-#define AHB1PERIPH_OFFSET			(0x00020000UL)
-#define AHB1PERIPH_BASE				(PERIPH_BASE + AHB1PERIPH_OFFSET)
+#define AHB1PERIPH_OFFSET		(0x00020000UL)
+#define AHB1PERIPH_BASE			(PERIPH_BASE + AHB1PERIPH_OFFSET)
 
 /* Cortex-M4 Internal Peripherals */
 
@@ -150,7 +150,7 @@ struct usart {
 #define RCC_BASE				(AHB1PERIPH_BASE + RCC_OFFSET)
 
 /* GPIO */
-#define GPIO_OFFSET                             (0x400UL)
+#define GPIO_OFFSET				(0x400UL)
 
 #define GPIOA_BASE				(AHB1PERIPH_BASE + 0x0000UL)
 #define GPIOB_BASE				(AHB1PERIPH_BASE + 0x0400UL)
@@ -178,21 +178,21 @@ struct usart {
  */
 
 /* Processor Clock rate */
-#define SYS_CLK_RATE				16000000UL
+#define SYS_CLK_RATE			16000000UL
 
 /* Peripherals Clock rate */
-#define APB2_CLK_RATE				SYS_CLK_RATE	
+#define APB2_CLK_RATE			SYS_CLK_RATE	
 
 /* SysTick */
 #define SYST					((struct systick *) SYST_BASE)
-#define SYST_CSR_ENABLE				(1U << 0)
-#define SYST_CSR_TICKINT			(1U << 1)
-#define SYST_CSR_CLKSRC				(1U << 2)
-#define SYST_CSR_CFLAG				(1U << 16)
+#define SYST_CSR_ENABLE			(1U << 0)
+#define SYST_CSR_TICKINT		(1U << 1)
+#define SYST_CSR_CLKSRC			(1U << 2)
+#define SYST_CSR_CFLAG			(1U << 16)
 
 /* RCC */
-#define RCC					((struct rcc *) RCC_BASE)
-#define RCC_APB2ENR_SYSCFGEN			(1U << 14)
+#define RCC						((struct rcc *) RCC_BASE)
+#define RCC_APB2ENR_SYSCFGEN	(1U << 14)
 
 /* GPIO */
 #define GPIOA					((struct gpio *) GPIOA_BASE)
@@ -215,20 +215,20 @@ struct usart {
 #define TIM4EN					(1U << 2)
 #define TIM5EN					(1U << 3)
 
-#define TIM_CCER_CC1E				(1U << 0)
-#define TIM_CCER_CC2E				(1U << 4)
-#define TIM_CCER_CC3E				(1U << 8)
-#define TIM_CCER_CC4E				(1U << 12)
+#define TIM_CCER_CC1E			(1U << 0)
+#define TIM_CCER_CC2E			(1U << 4)
+#define TIM_CCER_CC3E			(1U << 8)
+#define TIM_CCER_CC4E			(1U << 12)
 
 #define TIM_CR1_CEN				(1U << 0)
-#define TIM_CR1_ARPE				(1U << 7)
+#define TIM_CR1_ARPE			(1U << 7)
 
-#define TIM_DIER_UIE				(1U << 0)
-#define TIM_DIER_CC1IE				(1U << 1)
-#define TIM_DIER_CC2IE				(1U << 2)
-#define TIM_DIER_CC3IE				(1U << 3)
-#define TIM_DIER_CC4IE				(1U << 4)
-#define TIM_DIER_TIE				(1U << 6)
+#define TIM_DIER_UIE			(1U << 0)
+#define TIM_DIER_CC1IE			(1U << 1)
+#define TIM_DIER_CC2IE			(1U << 2)
+#define TIM_DIER_CC3IE			(1U << 3)
+#define TIM_DIER_CC4IE			(1U << 4)
+#define TIM_DIER_TIE			(1U << 6)
 
 #define TIM_SR_UIF				(1U << 0)
 #define TIM_EGR_UG				(1U << 0)
@@ -251,31 +251,31 @@ struct usart {
 #define USART2_IRQn				38
 #define USART6_IRQn				71
 
-#define USART_CR1_RE				(1U << 2)
-#define USART_CR1_TE				(1U << 3)
-#define USART_CR1_UE				(1U << 13)
+#define USART_CR1_RE			(1U << 2)
+#define USART_CR1_TE			(1U << 3)
+#define USART_CR1_UE			(1U << 13)
 
-#define USART_CR1_TXIE				(1U << 7)
-#define USART_CR1_TCIE				(1U << 6)
-#define USART_CR1_RXNEIE			(1U << 5)
-#define USART_CR1_IDLEIE			(1U << 4)
-#define USART_CR1_PEIE				(1U << 8)
+#define USART_CR1_TXIE			(1U << 7)
+#define USART_CR1_TCIE			(1U << 6)
+#define USART_CR1_RXNEIE		(1U << 5)
+#define USART_CR1_IDLEIE		(1U << 4)
+#define USART_CR1_PEIE			(1U << 8)
 
-#define USART_CR2_LBDIE				(1U << 6)
+#define USART_CR2_LBDIE			(1U << 6)
 
-#define USART_CR3_CTSIE				(1U << 10)
-#define USART_CR3_EIE				(1U << 0)
+#define USART_CR3_CTSIE			(1U << 10)
+#define USART_CR3_EIE			(1U << 0)
 
-#define USART_SR_TXE				(1U << 7)
-#define USART_SR_RXNE				(1U << 5)
+#define USART_SR_TXE			(1U << 7)
+#define USART_SR_RXNE			(1U << 5)
 
 /* ADC */
 #define ADC1					((struct adc *) ADC1_BASE)
 
 #define ADC1EN					(1U << 8)
-#define ADC_CR2_ADON				(1U << 0)
-#define ADC_CR2_CONT				(1U << 1)
-#define ADC_CR2_SWSTART				(1U << 30)
+#define ADC_CR2_ADON			(1U << 0)
+#define ADC_CR2_CONT			(1U << 1)
+#define ADC_CR2_SWSTART			(1U << 30)
 #define ADC_SR_EOC				(1U << 1)
 
 /*

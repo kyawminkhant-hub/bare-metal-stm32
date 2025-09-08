@@ -1,6 +1,6 @@
 #include <gpio.h>
 
-void gpio_pin_configure(uint16_t pin, uint8_t mode)
+void gpio_pin_configure(uint16_t pin, gpio_mode_t mode)
 {
 	struct gpio *gpio = GPIO(PORT(pin));
  	uint8_t n = PIN(pin);
@@ -11,7 +11,7 @@ void gpio_pin_configure(uint16_t pin, uint8_t mode)
 	gpio->MODER |= (mode & 3) << (2 * n);
 }
 
-void gpio_pin_af_configure(uint16_t pin, uint8_t af_mode)
+void gpio_pin_af_configure(uint16_t pin, gpio_af_mode_t af_mode)
 {
 	struct gpio *gpio = GPIO(PORT(pin));
 	uint8_t n = PIN(pin);
