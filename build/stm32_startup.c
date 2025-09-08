@@ -136,10 +136,10 @@ uint32_t vector_tbl[] __attribute__((section(".isr_vector_tbl"))) =
 	(uint32_t)&DMA1_Stream5_IRQHandler,      			/* DMA1 Stream5 global interrupt                                      */
 	(uint32_t)&DMA1_Stream6_IRQHandler,      			/* DMA1 Stream6 global interrupt                                      */
 	(uint32_t)&ADC_IRQHandler,               			/* ADC1 global interrupt                                              */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
+	0,                            						/* Reserved                                                           */
+	0,                            						/* Reserved                                                           */
+	0,                            						/* Reserved                                                           */
+	0,                            						/* Reserved                                                           */
 	(uint32_t)&EXTI9_5_IRQHandler,           			/* EXTI Line[9:5] interrupts                                          */
 	(uint32_t)&TIM1_BRK_TIM9_IRQHandler,     			/* TIM1 Break interrupt and TIM9 global interrupt                     */
 	(uint32_t)&TIM1_UP_TIM10_IRQHandler,     			/* TIM1 Update interrupt and TIM10 global interrupt                   */
@@ -156,34 +156,34 @@ uint32_t vector_tbl[] __attribute__((section(".isr_vector_tbl"))) =
 	(uint32_t)&SPI2_IRQHandler,              			/* SPI2 global interrupt                                              */
 	(uint32_t)&USART1_IRQHandler,            			/* USART1 global interrupt                                            */
 	(uint32_t)&USART2_IRQHandler,            			/* USART2 global interrupt                                            */
-	0,                            					/* Reserved                                                           */
+	0,                            						/* Reserved                                                           */
 	(uint32_t)&EXTI15_10_IRQHandler,         			/* EXTI Line[15:10] interrupts                                        */
 	(uint32_t)&RTC_Alarm_IRQHandler,         			/* RTC Alarms (A and B) through EXTI line interrupt                   */
 	(uint32_t)&OTG_FS_WKUP_IRQHandler,       			/* USB On-The-Go FS Wakeup through EXTI line interrupt                */
-	0,								/* Reserved                                                           */
-	0,								/* Reserved                                                           */
-	0,								/* Reserved                                                           */
-	0,								/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
 	(uint32_t)&DMA1_Stream7_IRQHandler,      			/* DMA1 Stream7 global interrupt                                      */
-	0,                            					/* Reserved                                                           */
+	0,                            						/* Reserved                                                           */
 	(uint32_t)&SDIO_IRQHandler,              			/* SDIO global interrupt                                              */
 	(uint32_t)&TIM5_IRQHandler,              			/* TIM5 global interrupt                                              */
 	(uint32_t)&SPI3_IRQHandler,              			/* SPI3 global interrupt                                              */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
 	(uint32_t)&DMA2_Stream0_IRQHandler,      			/* DMA2 Stream0 global interrupt                                      */
 	(uint32_t)&DMA2_Stream1_IRQHandler,      			/* DMA2 Stream1 global interrupt                                      */
 	(uint32_t)&DMA2_Stream2_IRQHandler,      			/* DMA2 Stream2 global interrupt                                      */
 	(uint32_t)&DMA2_Stream3_IRQHandler,      			/* DMA2 Stream3 global interrupt                                      */
 	(uint32_t)&DMA2_Stream4_IRQHandler,      			/* DMA2 Stream4 global interrupt                                      */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
 	(uint32_t)&OTG_FS_IRQHandler,            			/* USB On The Go FS global interrupt                                  */
 	(uint32_t)&DMA2_Stream5_IRQHandler,      			/* DMA2 Stream5 global interrupt                                      */
 	(uint32_t)&DMA2_Stream6_IRQHandler,      			/* DMA2 Stream6 global interrupt                                      */
@@ -191,18 +191,18 @@ uint32_t vector_tbl[] __attribute__((section(".isr_vector_tbl"))) =
 	(uint32_t)&USART6_IRQHandler,            			/* USART6 global interrupt                                            */
 	(uint32_t)&I2C3_EV_IRQHandler,           			/* I2C3 event interrupt                                               */
 	(uint32_t)&I2C3_ER_IRQHandler,           			/* I2C3 error interrupt                                               */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
 	(uint32_t)&FPU_IRQHandler,               			/* FPU global interrupt                                               */
-	0,                            					/* Reserved                                                           */
-	0,                            					/* Reserved                                                           */
+	0,													/* Reserved                                                           */
+	0,													/* Reserved                                                           */
 	(uint32_t)&SPI4_IRQHandler,              			/* SPI 4 global interrupt                                             */
-	(uint32_t)&SPI5_IRQHandler              			/* SPI 5 global interrupt 					      */    
+	(uint32_t)&SPI5_IRQHandler							/* SPI 5 global interrupt                                             */    
 };
 
 /* 
