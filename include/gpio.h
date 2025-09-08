@@ -6,7 +6,6 @@
 /* 
  * GPIO Helper Macros 
  */
-
 #define GPIO(x)                                 ((struct gpio *)(AHB1PERIPH_BASE + GPIO_OFFSET * x))
 
 /* Store GPIO PORT and pin in a 16-bit variable */

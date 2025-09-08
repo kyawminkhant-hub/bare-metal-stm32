@@ -5,7 +5,7 @@
 int main(void)
 {
 	/* Configure LED (GPIO PA5) as an OUTPUT */
-        uint16_t LED = GPIO_INIT(PA, 5); 
+	uint16_t LED = GPIO_INIT(PA, 5); 
 	gpio_pin_configure(LED, GPIO_MODE_OUTPUT);
 
 	int duration = 1000;

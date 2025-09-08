@@ -1,4 +1,3 @@
-#include <stm32f411re.h>
 #include <gpio.h>
 
 void gpio_pin_configure(uint16_t pin, uint8_t mode)

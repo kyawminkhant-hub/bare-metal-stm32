@@ -1,4 +1,3 @@
-#include <stm32f411re.h>
 #include <systick.h>
 
 void systick_timer_configure(uint8_t enable, uint8_t tickint, uint8_t clksrc) {
