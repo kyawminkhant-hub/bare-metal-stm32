@@ -4,6 +4,8 @@
 #include <stm32f411re.h>
 #include <gpio.h>
 
+#define ADC_RES	4095
+
 /* 
  * ADC Modes 
  */
@@ -21,7 +23,9 @@ void adc_configure(struct adc *adc, uint8_t channel, adc_mode_t mode);
 
 uint32_t adc_get(struct adc *adc);
 
-uint32_t adc_get_percent(struct adc *adc);
+static inline uint32_t adc_get_percent(struct adc *adc) {
+	return (adc_get(adc) * 100) / ADC_RES;
+}
 
 #endif /* ADC_H */
 

@@ -40,7 +40,3 @@ uint32_t adc_get(struct adc *adc)
 	while (!(adc->SR & ADC_SR_EOC)); // Wait conversion
 	return adc->DR;
 }
-
-uint32_t adc_get_percent (struct adc *adc) {
-	return (adc_get(adc) * 100) / 4095;
-}
