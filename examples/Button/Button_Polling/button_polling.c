@@ -1,7 +1,3 @@
-/*
- * This example code shows how to debounce a button using blocking delay.
- */
-
 #include <stm32f411re.h>
 #include <gpio.h>
 
@@ -19,7 +15,7 @@ int main(void)
 	uint16_t LD2_PIN = GPIO_INIT(PA, 5);
 	gpio_pin_configure(LD2_PIN, GPIO_MODE_OUTPUT);
 
-        uint8_t reading = B1_RELEASED;	
+	uint8_t reading = B1_RELEASED;	
 	
 	while (1) {
 		// Polling button state
