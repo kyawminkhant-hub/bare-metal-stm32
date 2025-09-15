@@ -14,5 +14,7 @@ int main(void) {
 			printf("echo \'%c\' \r\n", ch);
 		}
 	}
+
+	return 0;
 }
 

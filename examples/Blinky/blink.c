@@ -12,5 +12,7 @@ int main(void)
 		gpio_pin_toggle(LED);
 		delay_ms(1000);
 	}
+
+	return 0;
 }
 

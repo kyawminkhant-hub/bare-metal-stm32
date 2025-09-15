@@ -2,19 +2,19 @@
 #include <gpio.h>
 #include <timer.h>
 
-// USER_B1 is pulled-up
+/* USER_B1 is pulled-up */
 #define B1_RELEASED 1
 #define B1_PRESSED  0
 
 int main(void)
 {
 
-    // Configure B1 (GPIO PC13) as an INPUT
-    uint16_t B1_PIN = GPIO_INIT(PC, 13);
-    gpio_pin_configure(B1_PIN, GPIO_MODE_INPUT);
+	/* Configure B1 (GPIO PC13) as an INPUT */
+	uint16_t B1_PIN = GPIO_INIT(PC, 13);
+	gpio_pin_configure(B1_PIN, GPIO_MODE_INPUT);
 	
 	/* Configure LED (GPIO PA5) as an OUTPUT */
-    uint16_t LED = GPIO_INIT(PA, 5); 
+	uint16_t LED = GPIO_INIT(PA, 5); 
 	gpio_pin_configure(LED, GPIO_MODE_OUTPUT);
 
 	int bt_state = B1_RELEASED;
@@ -59,5 +59,7 @@ int main(void)
 			last_ms = timer_get_ms(TIM2);
 		}	
 	}
+
+	return 0;
 }
 

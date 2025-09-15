@@ -9,7 +9,7 @@ int main(void) {
 
 	uart_configure(USART1, 115200);
 
-	/* Configure GPIO pin as analog mode: ADC1_4 */
+	/* Configure GPIO pin PA4 as analog mode: ADC1_4 */
 	uint16_t A2 = GPIO_INIT(PA, 4);
 	gpio_pin_configure(A2, GPIO_MODE_ANALOG);
 
@@ -32,5 +32,7 @@ int main(void) {
 		printf("Pot Value: %d (%d%%) \r\n", pot, percent);
 		delay_ms(1000);
 	}
+
+	return 0;
 }
 

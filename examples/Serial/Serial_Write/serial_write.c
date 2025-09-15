@@ -11,5 +11,7 @@ int main(void) {
 		count++;
 		delay_ms(1000);
 	}
+	
+	return 0;
 }
 
