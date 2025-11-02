@@ -1,6 +1,8 @@
 # Bare-metal series: STM32
 
-This repository contains bare-metal C code for STM32 microcontrollers, with a custom **build system**, **linker script, startup file**, **peripheral drivers**, **interrupt callback functions**, and **application-level code examples** which are re-written from scratch without using any IDE or third-party libraries. By building everything from scratch, you'll gain a deeper understanding of how Arm Cortex-M based MCU works under the hood,  how embedded build systems are set up, and how Hardware Abstraction Layers (HALs) are implemented.
+This project is about programming STM32 microcontrollers in bare-metal C. It contains a custom **build system**, **linker script, startup file**, **peripheral drivers**, **interrupt callback functions**, and **application-level code examples** which are re-written from scratch without using any IDE or third-party libraries except CMSIS header files. By building everything from scratch, you'll gain a deeper understanding of how Arm Cortex-M based MCU works under the hood,  how embedded build systems are set up, and how Hardware Abstraction Layers (HALs) are implemented.
+
+⚠️ Disclaimer: This project is experimental and intended for learning purposes. Use it at your own risk.
 
 ![STM32F411RE](./docs/images/STM32F411RE.jpg)
 
@@ -85,33 +87,31 @@ $ which arm-none-eabi-gcc
 │   ├── gtim.c
 │   ├── pwm.c
 │   ├── ring_buffer.c
-│   ├── systick.c
 │   ├── timer.c
 │   └── uart.c
 ├── examples
-│   ├── ADC
-│   │   └── ...
-│   ├── Blinky
-│   │   └── ...
-│   ├── Button
-│   │   └── ...
-│   ├── PWM
-│   │   └── ...
-│   └── Serial
-│       └── ...
+│   ├── adc
+│   ├── blinky
+│   ├── button
+│   ├── pwm
+│   └── uart
 ├── include
-│   ├── adc.h
-│   ├── gpio.h
-│   ├── gtim.h
-│   ├── pwm.h
-│   ├── ring_buffer.h
-│   ├── stm32f411re.h
-│   ├── systick.h
-│   ├── timer.h
-│   └── uart.h
+│   ├── CMSIS
+│   └── drivers 
+│       ├── adc.h
+|       ├── gpio.h
+|       ├── gtim.h
+|       ├── hal_conf.h
+|       ├── hal.h
+|       ├── pwm.h
+|       ├── ring_buffer.h
+|       ├── systick.h
+|       ├── timer.h
+|       ├── uart.h
+|       └── util.h
 ├── lib
-│   └── ...
-└── Makefile
+├── Makefile
+└── conf_def.py
 
 ```
 

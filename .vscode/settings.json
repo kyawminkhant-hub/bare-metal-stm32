@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stm32f411re_board.h": "c",
+        "stm32f411xe.h": "c",
+        "hal.h": "c",
+        "stdio.h": "c",
+        "stm32f411re.h": "c",
+        "hal_conf.h": "c"
+    }
+}

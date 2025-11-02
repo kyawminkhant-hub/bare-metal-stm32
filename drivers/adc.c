@@ -1,6 +1,12 @@
+#include <stdio.h>
+#include "stm32f411xe.h"		// CMSIS Device Specific
+#include <stm32f411re.h>		// Board Specs Declarations
+#include <hal_conf.h>
+#include <util.h>
+#include <gpio.h>
 #include <adc.h>
 
-void adc_mode_select(struct adc *adc, adc_mode_t mode)
+void adc_mode_select(ADC_TypeDef *adc, adc_mode_t mode)
 {
 	// TODO: Add more modes
 
@@ -16,12 +22,12 @@ void adc_mode_select(struct adc *adc, adc_mode_t mode)
 	}
 }
 
-void adc_configure(struct adc *adc, uint8_t channel, adc_mode_t mode)
+void adc_configure(ADC_TypeDef *adc, uint8_t channel, adc_mode_t mode)
 {	
 	// TODO: Set Multiple Conversion Sequence
 	
 	/* Enable ADC1 Clock */
-	RCC->APB2ENR |= ADC1EN;
+	RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
 
 	/* Set Single Conversion Sequence */ 
 	adc->SQR3 = channel;
@@ -34,7 +40,7 @@ void adc_configure(struct adc *adc, uint8_t channel, adc_mode_t mode)
 	adc->CR2 |= ADC_CR2_ADON;
 }
 
-uint32_t adc_get(struct adc *adc)
+uint32_t adc_get(ADC_TypeDef *adc)
 {
 	adc->CR2 |= ADC_CR2_SWSTART; // Start conversion
 	while (!(adc->SR & ADC_SR_EOC)); // Wait conversion

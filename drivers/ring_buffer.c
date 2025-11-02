@@ -13,7 +13,7 @@ bool ring_buffer_full(struct ring_buffer *q)
 	return reserved_index == q->read_index;
 }
 
-uint8_t ring_buffer_set(struct ring_buffer *q, uint8_t data)
+uint8_t ring_buffer_put(struct ring_buffer *q, uint8_t data)
 {
 	q->buffer[q->write_index] = data; // *(q->buffer + q->write_index)
 
